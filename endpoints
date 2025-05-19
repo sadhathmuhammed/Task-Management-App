@@ -1,0 +1,7 @@
+POST /api/tasks/{task_id}/complete/
+Body JSON:
+{
+  "completion_report": "Fixed the login bug and wrote tests.",
+  "worked_hours": 2.5
+}
+

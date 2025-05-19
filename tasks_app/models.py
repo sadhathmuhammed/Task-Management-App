@@ -12,7 +12,7 @@ class Tasks(models.Model):
         ('COMPLETED', 'Completed'),
     )
     status = models.CharField(default="PENDING", choices=STATUS_CHOICES, max_length=20)
-    completion_report = models.TextField()
-    worked_hours = models.FloatField()
+    completion_report = models.TextField(blank=True, null=True)
+    worked_hours = models.FloatField(blank=True, null=True)
 
 
