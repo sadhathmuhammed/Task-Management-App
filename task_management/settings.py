@@ -56,7 +56,7 @@ ROOT_URLCONF = 'task_management.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'tasks_app' / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -67,6 +67,8 @@ TEMPLATES = [
         },
     },
 ]
+# LOGIN_URL = '/login/'
+# LOGOUT_REDIRECT_URL = 'login'
 
 WSGI_APPLICATION = 'task_management.wsgi.application'
 

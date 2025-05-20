@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>User & Admin Management</h2>
+<table>
+    <thead>
+        <tr><th>ID</th><th>Username</th><th>Email</th><th>Role</th><th>Actions</th></tr>
+    </thead>
+    <tbody>
+        {% for user in users %}
+        <tr>
+            <td>{{ user.id }}</td>
+            <td>{{ user.username }}</td>
+            <td>{{ user.email }}</td>
+            <td>
+                {% if user.is_superuser %}SuperAdmin{% elif user.is_staff %}Admin{% else %}User{% endif %}
+            </td>
+            <td><a href="{% url 'user-detail' user.id %}">View/Edit</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

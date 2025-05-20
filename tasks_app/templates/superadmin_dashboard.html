@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>SuperAdmin Dashboard</h2>
+<p>Welcome, {{ request.user.username }}!</p>
+<ul>
+    <li><a href="{% url 'user-list' %}">Manage Users/Admins</a></li>
+    <li><a href="{% url 'assign-user' %}">Assign Users to Admin</a></li>
+    <li><a href="{% url 'task-list' %}">View All Tasks & Reports</a></li>
+</ul>
+{% endblock %}
