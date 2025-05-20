@@ -22,7 +22,7 @@ urlpatterns = [
     path('superadmin/assign-user/', AdminView.as_view(), name='assign-user'),
     path('tasks/<int:pk>/complete/', CompleteTaskView.as_view(), name='task-complete'),
     path('admin/tasks/', AdminTaskListView.as_view(), name='admin_task_list'),
-    path('admin/reports/', TaskReportsView.as_view(), name='admin_task_reports')
+    path('admin/reports/', TaskReportsView.as_view(), name='admin_task_reports'),
     path('superadmin/tasks/', TaskListView.as_view(), name='task-list'),
 
 ]

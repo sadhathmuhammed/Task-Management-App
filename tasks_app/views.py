@@ -67,8 +67,17 @@ class TasksViewSet(viewsets.ModelViewSet):
     queryset = Tasks.objects.all()
     serializer_class = TaskSerializer
 
+    def get_queryset(self):
+        user = self.request.user
+        if user.is_superuser:
+            return Tasks.objects.all()
+        elif user.is_staff:
+            return Tasks.objects.filter(created_by=user)
+        else:
+            return Tasks.objects.filter(assigned_to=user)
+
 class RoleBasedLoginView(LoginView):
-    template_name = 'registration/login.html'  # Your login template
+    template_name = 'registration/login.html'
     redirect_authenticated_user = True
 
     def get_success_url(self):
